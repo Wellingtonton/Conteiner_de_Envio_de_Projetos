@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Projeto Academia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Fonte estilizada -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Bebas Neue', sans-serif;
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #ff004f;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px #ff004f;
+        }
+
+        header h1 {
+            font-size: 3em;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            background: #121212;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px #ff004f;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.5em;
+            transition: 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #ff004f;
+            color: #000;
+        }
+
+        main {
+            padding: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        footer {
+            background: #121212;
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>PROJETO ACADEMIA</h1>
+    </header>
+
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'lista_fichas' %}">Fichas</a>
+        <a href="{% url 'treinos' %}">Treinos</a>
+    </nav>
+
+    <main>
+        {% block content %}
+        <!-- Conteúdo das páginas -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        &copy; {{ now|date:"Y" }} Projeto Academia - Desenvolvido com Django 💪
+    </footer>
+
+</body>
+</html>
